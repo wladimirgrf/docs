@@ -1,8 +1,6 @@
 # Wallet API
 
-Bitchain's Wallet API allows you to look up information about public addresses on the blockchain, generate key pairs with corresponding addresses.
-
-If you're new to blockchains, you can think of public addresses as similar to bank account numbers in a traditional ledger. The biggest differences:
+Bitchain's Wallet API allows you to look up information about public addresses on the blockchain, generate key pairs with corresponding addresses. If you're new to blockchains, you can think of public addresses as similar to bank account numbers in a traditional ledger. The biggest differences:
 
 - Anyone can generate a public address themselves (through [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm). in Bitcoin). No single authority is needed to generate new addresses.
 
@@ -14,9 +12,23 @@ If you're new to blockchains, you can think of public addresses as similar to ba
 curl https://testnet.bitchain.network/wallets/tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800
 ```
 
+The default Wallet Endpoint strikes a balance between speed of response and data on Addresses. It returns more information about an address' transactions than the Address Balance Endpoint but doesn't return full transaction information.
+
+### HTTP Request
+
+`GET https://testnet.bitchain.network/wallets/:address `
+
+### URL Parameters
+
+Parameter   | Description
+---------   | -----------
+**address** | The address is a string representing the public address you're interested in querying.
+
+#### Example: `tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800`
+
 ```json
 {
-  "publicAddress": "tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800",
+  "address": "tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800",
   "balance": 30000,
   "confirmedBalance": 30000,
   "unconfirmedBalance": 0,
@@ -55,26 +67,36 @@ curl https://testnet.bitchain.network/wallets/tb1qe8ayn3j3adu72496v48v5cvj40gqpj
 }
 ```
 
-The default Wallet Endpoint strikes a balance between speed of response and data on Addresses. It returns more information about an address' transactions than the Address Balance Endpoint but doesn't return full transaction information.
+### HTTP Response
 
- Resource         |	Method | Object
- --------         | ------ | ------
-/wallets/:address | GET    | [Address](#address)
+This response represents a public address on a blockchain, and contains information about the state of balances and transactions related to this address.
 
-### URL Parameters
+Attribute                 | Type       | Description
+---------                 | ----       | -----------
+**address**               | _string_   | Is a string representing the address of a wallet.
+**balance**               | _integer_  | Total balance of satoshis, including confirmed and unconfirmed transactions, for this address.
+**confirmedBalance**      | _integer_  | Balance of confirmed satoshis on this address, but only for transactions that have been included into a block.
+**unconfirmedBalance**    | _integer_  | Balance of unconfirmed satoshis on this address. Can be negative (if unconfirmed transactions are just spending outputs). Only unconfirmed transactions (haven't made it into a block) are included.
+**transactionsReference** | _array[[TransactionsReference](#transactionsreference)]_ | **Optional** Array of transaction history for this address.
 
-Parameter   | Description
----------   | -----------
-**address** | The address is a string representing the public address you're interested in querying.
-
-Example: `tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800`
+#### On the right side, you will find an example of the object returned in the response you will get from the server.
 
 
-## Generate Wallet Endpoint
+## Create Wallet Endpoint
 
 ```shell
 curl -X POST https://testnet.bitchain.network/wallets/create
 ```
+
+The Create Wallet endpoint allows you to generate private-public key-pairs along with an associated public address. 
+No information is required with this POST request.
+
+<aside class="warning">Always use HTTPS for Wallet Generation requests. Otherwise, your generated private keys will be sent over insecure channels and could be MITM'd.</aside>
+
+### HTTP Request
+
+`POST https://testnet.bitchain.network/wallets/create`
+
 ```json
 {
   "publicAddress": "mffzq5WLcJVsokpSjVgPmjPmUCK5K2UoZN",
@@ -82,13 +104,14 @@ curl -X POST https://testnet.bitchain.network/wallets/create
 }
 ```
 
-The Generate Wallet endpoint allows you to generate private-public key-pairs along with an associated public address. 
-No information is required with this POST request.
+### HTTP Response
 
+This response represents an associated collection of public and private keys alongside their respective public address.
 
- Resource       |	Method | Object
- --------       | ------ | ------
-/wallets/create | POST   | [Wallet](#wallet)
+Attribute      | Type     | Description
+---------      | ----     | -----------
+**address**    | _string_ | Is a string representing the address of a wallet.
+**privateKey** | _string_ | Is a secret number that allows bitcoins to be spent, so be careful when handling it!
 
-<aside class="warning">Always use HTTPS for Wallet Generation requests. Otherwise, your generated private keys will be sent over insecure channels and could be MITM'd.</aside>
+#### On the right side, you will find an example of the object returned in the response you will get from the server.
 
