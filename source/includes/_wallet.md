@@ -16,13 +16,16 @@ The default Wallet Endpoint strikes a balance between speed of response and data
 
 ### HTTP Request
 
-`GET https://testnet.bitchain.network/wallets/:address `
+<div class="endpoint">
+  <i>GET</i>
+  <span>https://testnet.bitchain.network/wallets/:address</span>
+</div>
 
 ### URL Parameters
 
 Parameter   | Description
 ---------   | -----------
-**address** | The address is a string representing the public address you're interested in querying.
+`address` | The address is a string representing the public address you're interested in querying.
 
 #### Example: `tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800`
 
@@ -73,11 +76,11 @@ This response represents a public address on a blockchain, and contains informat
 
 Attribute                 | Type       | Description
 ---------                 | ----       | -----------
-**address**               | _string_   | Is a string representing the address of a wallet.
-**balance**               | _integer_  | Total balance of satoshis, including confirmed and unconfirmed transactions, for this address.
-**confirmedBalance**      | _integer_  | Balance of confirmed satoshis on this address, but only for transactions that have been included into a block.
-**unconfirmedBalance**    | _integer_  | Balance of unconfirmed satoshis on this address. Can be negative (if unconfirmed transactions are just spending outputs). Only unconfirmed transactions (haven't made it into a block) are included.
-**transactionsReference** | _array[[TransactionsReference](#transactionsreference)]_ | **Optional** Array of transaction history for this address.
+`address`               | _string_   | Is a string representing the address of a wallet.
+`balance`               | _integer_  | Total balance of satoshis, including confirmed and unconfirmed transactions, for this address.
+`confirmedBalance`      | _integer_  | Balance of confirmed satoshis on this address, but only for transactions that have been included into a block.
+`unconfirmedBalance`    | _integer_  | Balance of unconfirmed satoshis on this address. Can be negative (if unconfirmed transactions are just spending outputs). Only unconfirmed transactions (haven't made it into a block) are included.
+`transactionsReference` | _array[[TransactionsReference](#transactionsreference)]_ | **Optional** Array of transaction history for this address.
 
 #### On the right side, you will find an example of the object returned in the response you will get from the server.
 
@@ -95,7 +98,10 @@ No information is required with this POST request.
 
 ### HTTP Request
 
-`POST https://testnet.bitchain.network/wallets/create`
+<div class="endpoint">
+  <i>POST</i>
+  <span>https://testnet.bitchain.network/wallets/create</span>
+</div>
 
 ```json
 {
@@ -110,8 +116,8 @@ This response represents an associated collection of public and private keys alo
 
 Attribute      | Type     | Description
 ---------      | ----     | -----------
-**address**    | _string_ | Is a string representing the address of a wallet.
-**privateKey** | _string_ | Is a secret number that allows bitcoins to be spent, so be careful when handling it!
+`address`    | _string_ | Is a string representing the address of a wallet.
+`privateKey` | _string_ | Is a secret number that allows bitcoins to be spent, so be careful when handling it!
 
 #### On the right side, you will find an example of the object returned in the response you will get from the server.
 

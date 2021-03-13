@@ -14,14 +14,16 @@ The Transaction Endpoint returns detailed information about a given transaction 
 
 ### HTTP Request
 
-`GET https://testnet.bitchain.network/transactions/:id`
-
+<div class="endpoint">
+  <i>GET</i>
+  <span>https://testnet.bitchain.network/transactions/:id</span>
+</div>
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-**id**    | The id is a string representing the hex-encoded transaction hash you're interested in querying
+`id`    | The id is a string representing the hex-encoded transaction hash you're interested in querying
 
 #### Example: `d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53`
 
@@ -60,12 +62,12 @@ A Transaction represents the current state of a particular transaction from eith
 
 Attribute         | Type      | Description
 ---------         | ----      | -----------
-**id**            | _string_  | Is a string representing the hex-encoded transaction hash.
-**fee**           | _integer_ | The total number of fees in satoshis, collected by miners in this transaction.
-**confirmations** | _integer_ | Number of subsequent blocks, including the block the transaction is in. Unconfirmed transactions have 0 confirmations.
-**date**          | _string_  | Time this transaction was received by the Blockchain provider.
-**addressFrom**   | _array[[AddressFrom](#addressfrom)]_ | Array of Wallets that spend some amount in this transaction.
-**addressTo**     | _array[[AddressTo](#addressto)]_     | Array of Wallets that received some amount in this transaction.
+`id`            | _string_  | Is a string representing the hex-encoded transaction hash.
+`fee`           | _integer_ | The total number of fees in satoshis, collected by miners in this transaction.
+`confirmations` | _integer_ | Number of subsequent blocks, including the block the transaction is in. Unconfirmed transactions have 0 confirmations.
+`date`          | _string_  | Time this transaction was received by the Blockchain provider.
+`addressFrom`   | _array[[AddressFrom](#addressfrom)]_ | Array of Wallets that spend some amount in this transaction.
+`addressTo`     | _array[[AddressTo](#addressto)]_     | Array of Wallets that received some amount in this transaction.
 
 #### On the right side, you will find an example of the object returned in the response you will get from the server.
 
@@ -80,15 +82,18 @@ The Transaction Fee Endpoint returns the estimated mining fee amount (in satoshi
 
 ### HTTP Request
 
-`POST https://testnet.bitchain.network/transactions/fee`
+<div class="endpoint">
+  <i>POST</i>
+  <span>https://testnet.bitchain.network/transactions/fee</span>
+</div>
 
 ### Body
 
 Attribute       | Type      | Description
 ---------       | ----      | -----------
-**addressFrom** | _string_  | It is a string that represents the public address of a wallet that has a value to spend.
-**addressTo**   | _string_  | It is a string that represents the public address of the wallet that you want to send the amount.
-**value**       | _integer_ | The value received in this transaction, in satoshis.
+`addressFrom` | _string_  | It is a string that represents the public address of a wallet that has a value to spend.
+`addressTo`   | _string_  | It is a string that represents the public address of the wallet that you want to send the amount.
+`value`       | _integer_ | The value received in this transaction, in satoshis.
 
 ```json
 {
@@ -100,7 +105,7 @@ Attribute       | Type      | Description
 
 Attribute                   | Type      | Description
 ---------                   | ----      | -----------
-**transactionEstimatedFee** | _integer_ | The estimated mining fee amount for the transaction, in satoshis.
+`transactionEstimatedFee` | _integer_ | The estimated mining fee amount for the transaction, in satoshis.
 
 #### On the right side, you will find an example of the object returned in the response you will get from the server.
 
@@ -119,15 +124,18 @@ For security reasons, we never take possession of your private keys.
 
 ### HTTP Request
 
-`POST https://testnet.bitchain.network/transactions/create`
+<div class="endpoint">
+  <i>POST</i>
+  <span>https://testnet.bitchain.network/transactions/create</span>
+</div>
 
 ### Body
 
 Attribute      | Type      | Description
 ---------      | ----      | -----------
-**privateKey** | _string_  | Is a secret number that allows bitcoins to be spent, so be careful when handling it!
-**addressTo**  | _string_  | It is a string that represents the public address of the wallet that you want to send the amount.
-**value**      | _integer_ | The value received in this transaction, in satoshis.
+`privateKey` | _string_  | Is a secret number that allows bitcoins to be spent, so be careful when handling it!
+`addressTo`  | _string_  | It is a string that represents the public address of the wallet that you want to send the amount.
+`value`      | _integer_ | The value received in this transaction, in satoshis.
 
 
 ```json
@@ -159,10 +167,10 @@ A transaction is not considered confirmed until: (1) it is part of a block in th
 
 Attribute         | Type      | Description
 ---------         | ----      | -----------
-**id**            | _string_  | Is a string representing the hex-encoded transaction hash.
-**fee**           | _integer_ | The total number of fees in satoshis, collected by miners in this transaction.
-**addressFrom**   | _array[[AddressFrom](#addressfrom)]_ | Array of Wallets that spend some amount in this transaction.
-**addressTo**     | _array[[AddressTo](#addressto)]_     | Array of Wallets that received some amount in this transaction.
+`id`            | _string_  | Is a string representing the hex-encoded transaction hash.
+`fee`           | _integer_ | The total number of fees in satoshis, collected by miners in this transaction.
+`addressFrom`   | _array[[AddressFrom](#addressfrom)]_ | Array of Wallets that spend some amount in this transaction.
+`addressTo`     | _array[[AddressTo](#addressto)]_     | Array of Wallets that received some amount in this transaction.
 
 #### On the right side, you will find an example of the object returned in the response you will get from the server.
 

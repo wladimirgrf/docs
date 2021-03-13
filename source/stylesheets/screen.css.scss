@@ -61,6 +61,7 @@ html, body {
   background-color: $nav-bg;
   font-size: 13px;
   font-weight: bold;
+  box-shadow: 0 0 16px 4px rgba(#899bb0,0.1);
 
   // language selector for mobile devices
   .lang-selector {
@@ -75,7 +76,8 @@ html, body {
   .logo {
     display: block;
     max-width: 100%;
-    margin-bottom: $logo-margin;
+    color: $logo-color;
+    margin: $logo-margin;
   }
 
   &>.search {
@@ -352,7 +354,6 @@ html, body {
     padding-bottom: 0.5em;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-    border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     background-color: #fdfdfd;
   }
@@ -411,16 +412,13 @@ html, body {
 
     th {
       padding: 5px 10px;
-      border-bottom: 1px solid #ccc;
+      border: 1px solid #ccc;
       vertical-align: bottom;
     }
 
     td {
+      border: 1px solid #ccc;
       padding: 10px;
-    }
-
-    tr:last-child {
-      border-bottom: 1px solid #ccc;
     }
 
     tr:nth-child(odd)>td {
@@ -451,10 +449,46 @@ html, body {
 
   code {
     background-color: rgba(0,0,0,0.05);
+    color: $code-color;
     padding: 3px;
     border-radius: 3px;
     @extend %break-words;
     @extend %code-font;
+  }
+
+  .endpoint {
+    background-color: $endpoint-bg;
+    color: $endpoint-color;
+    border-radius: 4px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #404040;
+    margin-bottom: 15px;
+    margin-left: 28px;
+    height: 38px;
+    margin-right: 52%;
+    overflow: scroll;
+    white-space: nowrap;
+
+    i {
+      display: inline-block;
+      margin: 5px;
+      padding: 4px 12px;
+      line-height: 20px;
+      background-color: $endpoint-icon-bg;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    span {
+      color: $endpoint-color;
+      margin: 0;
+      text-transform: lowercase;
+      font-weight: 400;
+      font-size: 14px;
+      padding-right: 28px;
+      font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
+    }
   }
 
   pre>code {
@@ -570,6 +604,10 @@ html, body {
     }
   }
 
+  .content .endpoint {
+    margin-right: 54%;
+  }
+
   .page-wrapper {
     margin-left: 0;
   }
@@ -599,6 +637,10 @@ html, body {
 
   .page-wrapper .lang-selector {
     display: none;
+  }
+
+  .content .endpoint {
+    margin-right: 28px;
   }
 
   %right-col {
