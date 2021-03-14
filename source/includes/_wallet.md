@@ -35,7 +35,7 @@ Parameter   | Description
   "balance": 30000,
   "confirmedBalance": 30000,
   "unconfirmedBalance": 0,
-  "referenceTransactions": [
+  "transactionsReference": [
     {
       "transactionId": "d8db85b8aa834bab65c59eac0159ad166c3b89e09a06520412c9821e71222f52",
       "confirmations": -1,
@@ -105,7 +105,7 @@ No information is required with this POST request.
 
 ```json
 {
-  "publicAddress": "mffzq5WLcJVsokpSjVgPmjPmUCK5K2UoZN",
+  "address": "mffzq5WLcJVsokpSjVgPmjPmUCK5K2UoZN",
   "privateKey": "cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K"
 }
 ```
