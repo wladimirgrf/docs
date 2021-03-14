@@ -2,14 +2,14 @@
 
 Bitchain's Wallet API allows you to look up information about public addresses on the blockchain, generate key pairs with corresponding addresses. If you're new to blockchains, you can think of public addresses as similar to bank account numbers in a traditional ledger. The biggest differences:
 
-- Anyone can generate a public address themselves (through [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm). in Bitcoin). No single authority is needed to generate new addresses.
+- Anyone can generate a public address themselves (through [ECDSA](https://en.wikipedia.org/wiki/EllipticCurveDigitalSignatureAlgorithm). in Bitcoin). No single authority is needed to generate new addresses.
 
 - Public addresses are significantly more lightweight. Consequently, and unlike traditional bank accounts, you can (and should) generate new addresses for every transaction.
 
 ## Wallet Endpoint
 
 ```shell
-curl https://testnet.bitchain.network/wallets/tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800
+curl "https://testnet.bitchain.network/wallets/tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800"
 ```
 
 The default Wallet Endpoint strikes a balance between speed of response and data on Addresses. It returns more information about an address' transactions than the Address Balance Endpoint but doesn't return full transaction information.
@@ -27,7 +27,7 @@ Parameter   | Description
 ---------   | -----------
 `address` | The address is a string representing the public address you're interested in querying.
 
-#### Example: `tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800`
+`Example: tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800`
 
 ```json
 {
@@ -76,11 +76,11 @@ This response represents a public address on a blockchain, and contains informat
 
 Attribute                 | Type       | Description
 ---------                 | ----       | -----------
-`address`               | _string_   | Is a string representing the address of a wallet.
-`balance`               | _integer_  | Total balance of satoshis, including confirmed and unconfirmed transactions, for this address.
-`confirmedBalance`      | _integer_  | Balance of confirmed satoshis on this address, but only for transactions that have been included into a block.
-`unconfirmedBalance`    | _integer_  | Balance of unconfirmed satoshis on this address. Can be negative (if unconfirmed transactions are just spending outputs). Only unconfirmed transactions (haven't made it into a block) are included.
-`transactionsReference` | _array[[TransactionsReference](#transactionsreference)]_ | **Optional** Array of transaction history for this address.
+`address`               | string   | Is a string representing the address of a wallet.
+`balance`               | integer  | Total balance of satoshis, including confirmed and unconfirmed transactions, for this address.
+`confirmedBalance`      | integer  | Balance of confirmed satoshis on this address, but only for transactions that have been included into a block.
+`unconfirmedBalance`    | integer  | Balance of unconfirmed satoshis on this address. Can be negative (if unconfirmed transactions are just spending outputs). Only unconfirmed transactions (haven't made it into a block) are included.
+`transactionsReference` | array[[TransactionsReference](#transactionsreference)] | **Optional** Array of transaction history for this address.
 
 #### On the right side, you will find an example of the object returned in the response you will get from the server.
 
@@ -88,7 +88,7 @@ Attribute                 | Type       | Description
 ## Create Wallet Endpoint
 
 ```shell
-curl -X POST https://testnet.bitchain.network/wallets/create
+curl -X POST "https://testnet.bitchain.network/wallets/create"
 ```
 
 The Create Wallet endpoint allows you to generate private-public key-pairs along with an associated public address. 
@@ -116,8 +116,8 @@ This response represents an associated collection of public and private keys alo
 
 Attribute      | Type     | Description
 ---------      | ----     | -----------
-`address`    | _string_ | Is a string representing the address of a wallet.
-`privateKey` | _string_ | Is a secret number that allows bitcoins to be spent, so be careful when handling it!
+`address`    | string | Is a string representing the address of a wallet.
+`privateKey` | string | Is a secret number that allows bitcoins to be spent, so be careful when handling it!
 
 #### On the right side, you will find an example of the object returned in the response you will get from the server.
 
