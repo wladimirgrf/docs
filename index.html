@@ -1,0 +1,834 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Bitchain</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-f59c730a.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-2c600fbb.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-a9fde460.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;java&quot;,&quot;php&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <h1 class="logo">Bitchain</h1>
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="javascript">Node.js</a>
+              <a href="#" data-language-name="java">Java</a>
+              <a href="#" data-language-name="php">PHP</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#documentation-structure" class="toc-h1 toc-link" data-title="Documentation Structure">Documentation Structure</a>
+          </li>
+          <li>
+            <a href="#wallet-api" class="toc-h1 toc-link" data-title="Wallet API">Wallet API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#wallet-endpoint" class="toc-h2 toc-link" data-title="Wallet Endpoint">Wallet Endpoint</a>
+                  </li>
+                  <li>
+                    <a href="#create-wallet-endpoint" class="toc-h2 toc-link" data-title="Create Wallet Endpoint">Create Wallet Endpoint</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#transaction-api" class="toc-h1 toc-link" data-title="Transaction API">Transaction API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#transaction-endpoint" class="toc-h2 toc-link" data-title="Transaction Endpoint">Transaction Endpoint</a>
+                  </li>
+                  <li>
+                    <a href="#transaction-fee-endpoint" class="toc-h2 toc-link" data-title="Transaction Fee Endpoint">Transaction Fee Endpoint</a>
+                  </li>
+                  <li>
+                    <a href="#create-transaction-endpoint" class="toc-h2 toc-link" data-title="Create Transaction Endpoint">Create Transaction Endpoint</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#objects" class="toc-h1 toc-link" data-title="Objects">Objects</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#addressfrom" class="toc-h2 toc-link" data-title="AddressFrom">AddressFrom</a>
+                  </li>
+                  <li>
+                    <a href="#addressto" class="toc-h2 toc-link" data-title="AddressTo">AddressTo</a>
+                  </li>
+                  <li>
+                    <a href="#transactionsreference" class="toc-h2 toc-link" data-title="TransactionsReference">TransactionsReference</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a target='_blank' href='https://github.com/wladimirgrf/bitchain-network'>Bitchain's Network on Github</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to Bitchain&#39;s API documentation! Bitchain Network is a simple, mostly RESTful JSON API for interacting with Bitcoin blockchain, accessed over HTTP or HTTPS from the api.bitchain.network domain. Currently, Bitchain supports Bitcoin and Bitcoin Testnet Chain.</p>
+
+<aside class="warning">
+All currency amounts are in units of satoshis (1/100,000,000 of a bitcoin).
+</aside>
+<h1 id='documentation-structure'>Documentation Structure</h1>
+<p>In these docs you&#39;ll find everything you need to leverage Bitchain for your applications. For all officially supported languages, you&#39;ll see code samples, in addition to basic cURL requests/responses for every endpoint. You can switch between cURL/language samples via the selector in the upper right. We&#39;re working on supporting more languages, but if you&#39;re working on your own language library, definitely let us know: we&#39;d love to add more community supported libraries here.</p>
+<h1 id='wallet-api'>Wallet API</h1>
+<p>Bitchain&#39;s Wallet API allows you to look up information about public addresses on the blockchain, generate key pairs with corresponding addresses. If you&#39;re new to blockchains, you can think of public addresses as similar to bank account numbers in a traditional ledger. The biggest differences:</p>
+
+<ul>
+<li><p>Anyone can generate a public address themselves (through <a href="https://en.wikipedia.org/wiki/EllipticCurveDigitalSignatureAlgorithm">ECDSA</a>. in Bitcoin). No single authority is needed to generate new addresses.</p></li>
+<li><p>Public addresses are significantly more lightweight. Consequently, and unlike traditional bank accounts, you can (and should) generate new addresses for every transaction.</p></li>
+</ul>
+<h2 id='wallet-endpoint'>Wallet Endpoint</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://testnet.bitchain.network/wallets/tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800"</span>
+</code></pre></div>
+<p>The default Wallet Endpoint strikes a balance between speed of response and data on Addresses. It returns more information about an address&#39; transactions than the Address Balance Endpoint but doesn&#39;t return full transaction information.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<div class="endpoint">
+  <i>GET</i>
+  <span>https://testnet.bitchain.network/wallets/:address</span>
+</div>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>address</code></td>
+<td>The address is a string representing the public address you&#39;re interested in querying.</td>
+</tr>
+</tbody></table>
+
+<p><code>Example: tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800</code></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmedBalance"</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"unconfirmedBalance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"referenceTransactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d8db85b8aa834bab65c59eac0159ad166c3b89e09a06520412c9821e71222f52"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"confirmations"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">1938604</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3fe0c54b470064411db65497a658d5d96478eb3ec39b47e556974091b5b9122"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"confirmations"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">1938604</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a8a0a2930a29efa4b6e6972b6ab093bb406b51af90e1bcb230e2e5de7217b13"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"confirmations"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">1938566</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a64e39a56f4b0dd31734e774d9bc98713b719f6364212d84d76c50212c1058d5"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"confirmations"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">1938566</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"85fd8379a361f89dc173eae0f8c324533702602062546a10490fd8bfc1b048fb"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"confirmations"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"blockHeight"</span><span class="p">:</span><span class="w"> </span><span class="mi">1938566</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-response'>HTTP Response</h3>
+<p>This response represents a public address on a blockchain, and contains information about the state of balances and transactions related to this address.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>address</code></td>
+<td>string</td>
+<td>Is a string representing the address of a wallet.</td>
+</tr>
+<tr>
+<td><code>balance</code></td>
+<td>integer</td>
+<td>Total balance of satoshis, including confirmed and unconfirmed transactions, for this address.</td>
+</tr>
+<tr>
+<td><code>confirmedBalance</code></td>
+<td>integer</td>
+<td>Balance of confirmed satoshis on this address, but only for transactions that have been included into a block.</td>
+</tr>
+<tr>
+<td><code>unconfirmedBalance</code></td>
+<td>integer</td>
+<td>Balance of unconfirmed satoshis on this address. Can be negative (if unconfirmed transactions are just spending outputs). Only unconfirmed transactions (haven&#39;t made it into a block) are included.</td>
+</tr>
+<tr>
+<td><code>transactionsReference</code></td>
+<td>array[<a href="#transactionsreference">TransactionsReference</a>]</td>
+<td><strong>Optional</strong> Array of transaction history for this address.</td>
+</tr>
+</tbody></table>
+<h4 id='on-the-right-side-you-will-find-an-example-of-the-object-returned-in-the-response-you-will-get-from-the-server'>On the right side, you will find an example of the object returned in the response you will get from the server.</h4><h2 id='create-wallet-endpoint'>Create Wallet Endpoint</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://testnet.bitchain.network/wallets/create"</span>
+</code></pre></div>
+<p>The Create Wallet endpoint allows you to generate private-public key-pairs along with an associated public address. 
+No information is required with this POST request.</p>
+
+<aside class="warning">Always use HTTPS for Wallet Generation requests. Otherwise, your generated private keys will be sent over insecure channels and could be MITM'd.</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<div class="endpoint">
+  <i>POST</i>
+  <span>https://testnet.bitchain.network/wallets/create</span>
+</div>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"publicAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mffzq5WLcJVsokpSjVgPmjPmUCK5K2UoZN"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"privateKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-response-2'>HTTP Response</h3>
+<p>This response represents an associated collection of public and private keys alongside their respective public address.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>address</code></td>
+<td>string</td>
+<td>Is a string representing the address of a wallet.</td>
+</tr>
+<tr>
+<td><code>privateKey</code></td>
+<td>string</td>
+<td>Is a secret number that allows bitcoins to be spent, so be careful when handling it!</td>
+</tr>
+</tbody></table>
+<h4 id='on-the-right-side-you-will-find-an-example-of-the-object-returned-in-the-response-you-will-get-from-the-server-2'>On the right side, you will find an example of the object returned in the response you will get from the server.</h4><h1 id='transaction-api'>Transaction API</h1>
+<p>Transactions are grouped into blocks and about every 10 minutes, a new block of transactions is sent out, becoming part of the transaction log (Blockchain), which indicates the transaction has been made (more-or-less) official. Once a transaction has been successfully mined in the blockchain, you can say that you transferred a certain amount of BTC to another address.</p>
+
+<p>Bitchain&#39;s Transaction API allows you to look up information about unconfirmed transactions, query transactions based on their id (hash), create and propagate your own transactions. </p>
+<h2 id='transaction-endpoint'>Transaction Endpoint</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://testnet.bitchain.network/transactions/d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53"</span>
+</code></pre></div>
+<p>The Transaction Endpoint returns detailed information about a given transaction based on its public id (hash).</p>
+<h3 id='http-request'>HTTP Request</h3>
+<div class="endpoint">
+  <i>GET</i>
+  <span>https://testnet.bitchain.network/transactions/:id</span>
+</div>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>The id is a string representing the hex-encoded transaction hash you&#39;re interested in querying</td>
+</tr>
+</tbody></table>
+
+<p><code>Example: d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53</code></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">24547</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmations"</span><span class="p">:</span><span class="w"> </span><span class="mi">1194</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-02T21:02:23.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"addressFrom"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tb1q3yyq37lalgq0chareur9yykgtgpqwztt5uezvz"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">78836818</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tb1qrgrmt8cm6n7nhqz9lexvy0rxul0xr52m2gay0u"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">71923196</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"addressTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mhfNudm6YDYnYkegFSjcsppucpAA8TRviD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000000</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tb1q7zf06fvr8jq889k3v6ly2l0slxphtuka6dlmcs"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">50735467</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-response'>HTTP Response</h3>
+<p>A Transaction represents the current state of a particular transaction from either a Block within a Blockchain, or an unconfirmed transaction that has yet to be included in a Block.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>Is a string representing the hex-encoded transaction hash.</td>
+</tr>
+<tr>
+<td><code>fee</code></td>
+<td>integer</td>
+<td>The total number of fees in satoshis, collected by miners in this transaction.</td>
+</tr>
+<tr>
+<td><code>confirmations</code></td>
+<td>integer</td>
+<td>Number of subsequent blocks, including the block the transaction is in. Unconfirmed transactions have 0 confirmations.</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>string</td>
+<td>Time this transaction was received by the Blockchain provider.</td>
+</tr>
+<tr>
+<td><code>addressFrom</code></td>
+<td>array[<a href="#addressfrom">AddressFrom</a>]</td>
+<td>Array of Wallets that spend some amount in this transaction.</td>
+</tr>
+<tr>
+<td><code>addressTo</code></td>
+<td>array[<a href="#addressto">AddressTo</a>]</td>
+<td>Array of Wallets that received some amount in this transaction.</td>
+</tr>
+</tbody></table>
+<h4 id='on-the-right-side-you-will-find-an-example-of-the-object-returned-in-the-response-you-will-get-from-the-server'>On the right side, you will find an example of the object returned in the response you will get from the server.</h4><h2 id='transaction-fee-endpoint'>Transaction Fee Endpoint</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-d</span> <span class="s1">'{"addressFrom": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd","addressTo": "mjDaJzEDCjiS86jJWmpn38nGe2A9N7EStd","value": 10000}'</span> <span class="s2">"https://testnet.bitchain.network/transactions/fee"</span>
+</code></pre></div>
+<p>The Transaction Fee Endpoint returns the estimated mining fee amount (in satoshis) for a transaction, based on the addresses and value involved.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<div class="endpoint">
+  <i>POST</i>
+  <span>https://testnet.bitchain.network/transactions/fee</span>
+</div>
+<h3 id='body'>Body</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>addressFrom</code></td>
+<td>string</td>
+<td>It is a string that represents the public address of a wallet that has a value to spend.</td>
+</tr>
+<tr>
+<td><code>addressTo</code></td>
+<td>string</td>
+<td>It is a string that represents the public address of the wallet that you want to send the amount.</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>integer</td>
+<td>The value received in this transaction, in satoshis.</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"transactionEstimatedFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">15200</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-response-2'>HTTP Response</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>transactionEstimatedFee</code></td>
+<td>integer</td>
+<td>The estimated mining fee amount for the transaction, in satoshis.</td>
+</tr>
+</tbody></table>
+<h4 id='on-the-right-side-you-will-find-an-example-of-the-object-returned-in-the-response-you-will-get-from-the-server-2'>On the right side, you will find an example of the object returned in the response you will get from the server.</h4><h2 id='create-transaction-endpoint'>Create Transaction Endpoint</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-d</span> <span class="s1">'{"privateKey": "cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K","addressTo": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd","value": 1000}'</span> <span class="s2">"https://testnet.bitchain.network/transactions/create"</span>
+</code></pre></div>
+<p>Using Bitchain&#39;s API, you can push transactions to blockchain. </p>
+
+<aside class="notice">
+For security reasons, we never take possession of your private keys.
+</aside>
+<h3 id='http-request-3'>HTTP Request</h3>
+<div class="endpoint">
+  <i>POST</i>
+  <span>https://testnet.bitchain.network/transactions/create</span>
+</div>
+<h3 id='body-2'>Body</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>privateKey</code></td>
+<td>string</td>
+<td>Is a secret number that allows bitcoins to be spent, so be careful when handling it!</td>
+</tr>
+<tr>
+<td><code>addressTo</code></td>
+<td>string</td>
+<td>It is a string that represents the public address of the wallet that you want to send the amount.</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>integer</td>
+<td>The value received in this transaction, in satoshis.</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ab0eee27325d5fad40431f52294edf2c09258ce85fd40a8283d6a64c6d6ddbde"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">15200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"addressFrom"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"muwAf337HUDpuajeA2yERod4bPZyWpcqbd"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2750343</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"addressTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"muwAf337HUDpuajeA2yERod4bPZyWpcqbd"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"muwAf337HUDpuajeA2yERod4bPZyWpcqbd"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2734143</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-response-3'>HTTP Response</h3>
+<p>A transaction is not considered confirmed until: (1) it is part of a block in the longest fork, and (2) at least 5 blocks follow it in the longest fork. In this case we say that the transaction has “6 confirmations”. This gives the network time to come to an agreed-upon the ordering of the blocks. </p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>Is a string representing the hex-encoded transaction hash.</td>
+</tr>
+<tr>
+<td><code>fee</code></td>
+<td>integer</td>
+<td>The total number of fees in satoshis, collected by miners in this transaction.</td>
+</tr>
+<tr>
+<td><code>addressFrom</code></td>
+<td>array[<a href="#addressfrom">AddressFrom</a>]</td>
+<td>Array of Wallets that spend some amount in this transaction.</td>
+</tr>
+<tr>
+<td><code>addressTo</code></td>
+<td>array[<a href="#addressto">AddressTo</a>]</td>
+<td>Array of Wallets that received some amount in this transaction.</td>
+</tr>
+</tbody></table>
+<h4 id='on-the-right-side-you-will-find-an-example-of-the-object-returned-in-the-response-you-will-get-from-the-server-3'>On the right side, you will find an example of the object returned in the response you will get from the server.</h4><h1 id='objects'>Objects</h1>
+<p>This section provides a comprehensive reference for Objects in the API. For each Object there&#39;s a description and a link to a API endpoint.</p>
+
+<aside class="notice">
+Objects sometimes contain attributes that are <b>optional.</b> These are always noted in the <b>description</b>. In these cases, the Object may not be guaranteed to include that attribute in its response.
+</aside>
+<h2 id='addressfrom'>AddressFrom</h2>
+<p>A AddressFrom represents an input consumed within a transaction. Generally returned and used with <a href="#transaction-endpoint">Transaction Endpoint</a> and <a href="#create-transaction-endpoint">Create Transaction Endpoint</a>.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>address</code></td>
+<td>string</td>
+<td>Is a string representing the address of a wallet.</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>integer</td>
+<td>The value being spent in this transaction.</td>
+</tr>
+</tbody></table>
+<h2 id='addressto'>AddressTo</h2>
+<p>A AddressTo represents an output created by a transaction. Generally returned and used with <a href="#transaction-endpoint">Transaction Endpoint</a> and <a href="#create-transaction-endpoint">Create Transaction Endpoint</a>.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>address</code></td>
+<td>string</td>
+<td>Is a string representing the address of a wallet.</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>integer</td>
+<td>The value received in this transaction, in satoshis.</td>
+</tr>
+</tbody></table>
+<h2 id='transactionsreference'>TransactionsReference</h2>
+<p>A TransactionsReference object represents summarized data about a transaction. Generally returned and used with the <a href="#wallet-endpoint">Wallet Endpoint</a>.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>transactionId</code></td>
+<td>string</td>
+<td>Is a string representing the hex-encoded transaction hash.</td>
+</tr>
+<tr>
+<td><code>confirmations</code></td>
+<td>integer</td>
+<td>Number of subsequent blocks, including the block the transaction is in. Unconfirmed transactions have 0 confirmations.</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>integer</td>
+<td>The value transferred by this transaction in satoshis.</td>
+</tr>
+<tr>
+<td><code>blockHeight</code></td>
+<td>integer</td>
+<td>Height of the block that contains this transaction. If it&#39;s unconfirmed, this will equal -1.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="javascript">Node.js</a>
+                <a href="#" data-language-name="java">Java</a>
+                <a href="#" data-language-name="php">PHP</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
