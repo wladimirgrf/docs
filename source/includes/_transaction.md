@@ -33,7 +33,7 @@ Parameter | Description
   "fee": 24547,
   "confirmations": 1194,
   "date": "2021-03-02T21:02:23.000Z",
-  "addressFrom": [
+  "transactionInput": [
     {
       "address": "tb1q3yyq37lalgq0chareur9yykgtgpqwztt5uezvz",
       "value": 78836818
@@ -43,7 +43,7 @@ Parameter | Description
       "value": 71923196
     }
   ],
-  "addressTo": [
+  "transactionOutput": [
     {
       "address": "mhfNudm6YDYnYkegFSjcsppucpAA8TRviD",
       "value": 100000000
@@ -60,14 +60,14 @@ Parameter | Description
 
 A Transaction represents the current state of a particular transaction from either a Block within a Blockchain, or an unconfirmed transaction that has yet to be included in a Block.
 
-Attribute         | Type      | Description
----------         | ----      | -----------
-`id`            | string  | Is a string representing the hex-encoded transaction hash.
-`fee`           | integer | The total number of fees in satoshis, collected by miners in this transaction.
-`confirmations` | integer | Number of subsequent blocks, including the block the transaction is in. Unconfirmed transactions have 0 confirmations.
-`date`          | string  | Time this transaction was received by the Blockchain provider.
-`addressFrom`   | array[[AddressFrom](#addressfrom)] | Array of Wallets that spend some amount in this transaction.
-`addressTo`     | array[[AddressTo](#addressto)]     | Array of Wallets that received some amount in this transaction.
+Attribute          | Type      | Description
+---------          | ----      | -----------
+`id`               | string  | Is a string representing the hex-encoded transaction hash.
+`fee`              | integer | The total number of fees in satoshis, collected by miners in this transaction.
+`confirmations`    | integer | Number of subsequent blocks, including the block the transaction is in. Unconfirmed transactions have 0 confirmations.
+`date`             | string  | Time this transaction was received by the Blockchain provider.
+`transactionInput` | array[[TransactionInput](#transactioninput)]   | Array of Wallets that spend some amount in this transaction.
+`transactionOutput`| array[[TransactionOutput](#transactionoutput)] | Array of Wallets that received some amount in this transaction.
 
 #### On the right side, you will find an example of the object returned in the response you will get from the server.
 
@@ -89,8 +89,8 @@ The Transaction Fee Endpoint returns the estimated mining fee amount (in satoshi
 
 ### Body
 
-Attribute       | Type      | Description
----------       | ----      | -----------
+Attribute     | Type    | Description
+---------     | ----    | -----------
 `addressFrom` | string  | It is a string that represents the public address of a wallet that has a value to spend.
 `addressTo`   | string  | It is a string that represents the public address of the wallet that you want to send the amount.
 `value`       | integer | The value received in this transaction, in satoshis.
@@ -103,8 +103,8 @@ Attribute       | Type      | Description
 
 ### HTTP Response
 
-Attribute                   | Type      | Description
----------                   | ----      | -----------
+Attribute                 | Type      | Description
+---------                 | ----      | -----------
 `transactionEstimatedFee` | integer | The estimated mining fee amount for the transaction, in satoshis.
 
 #### On the right side, you will find an example of the object returned in the response you will get from the server.
@@ -118,8 +118,8 @@ curl -d '{"privateKey": "cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K","
 
 Using Bitchain's API, you can push transactions to blockchain. 
 
-<aside class="notice">
-For security reasons, we never take possession of your private keys.
+<aside class="success">
+We never take possession of your private keys.
 </aside>
 
 ### HTTP Request
@@ -131,8 +131,8 @@ For security reasons, we never take possession of your private keys.
 
 ### Body
 
-Attribute      | Type      | Description
----------      | ----      | -----------
+Attribute    | Type    | Description
+---------    | ----    | -----------
 `privateKey` | string  | Is a secret number that allows bitcoins to be spent, so be careful when handling it!
 `addressTo`  | string  | It is a string that represents the public address of the wallet that you want to send the amount.
 `value`      | integer | The value received in this transaction, in satoshis.
@@ -142,13 +142,13 @@ Attribute      | Type      | Description
 {
   "id": "ab0eee27325d5fad40431f52294edf2c09258ce85fd40a8283d6a64c6d6ddbde",
   "fee": 15200,
-  "addressFrom": [
+  "transactionInput": [
     {
       "address": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
       "value": 2750343
     }
   ],
-  "addressTo": [
+  "transactionOutput": [
     {
       "address": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
       "value": 1000
@@ -165,12 +165,12 @@ Attribute      | Type      | Description
 
 A transaction is not considered confirmed until: (1) it is part of a block in the longest fork, and (2) at least 5 blocks follow it in the longest fork. In this case we say that the transaction has “6 confirmations”. This gives the network time to come to an agreed-upon the ordering of the blocks. 
 
-Attribute         | Type      | Description
----------         | ----      | -----------
-`id`            | string  | Is a string representing the hex-encoded transaction hash.
-`fee`           | integer | The total number of fees in satoshis, collected by miners in this transaction.
-`addressFrom`   | array[[AddressFrom](#addressfrom)] | Array of Wallets that spend some amount in this transaction.
-`addressTo`     | array[[AddressTo](#addressto)]     | Array of Wallets that received some amount in this transaction.
+Attribute           | Type    | Description
+---------           | ----    | -----------
+`id`                | string  | Is a string representing the hex-encoded transaction hash.
+`fee`               | integer | The total number of fees in satoshis, collected by miners in this transaction.
+`transactionInput`  | array[[TransactionInput](#transactioninput)]   | Array of Wallets that spend some amount in this transaction.
+`transactionOutput` | array[[TransactionOutput](#transactionoutput)] | Array of Wallets that received some amount in this transaction.
 
 #### On the right side, you will find an example of the object returned in the response you will get from the server.
 

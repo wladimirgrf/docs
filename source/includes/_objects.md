@@ -7,22 +7,22 @@ Objects sometimes contain attributes that are <b>optional.</b> These are always 
 </aside>
 
 
-## AddressFrom
+## TransactionInput
 
-A AddressFrom represents an input consumed within a transaction. Generally returned and used with [Transaction Endpoint](#transaction-endpoint) and [Create Transaction Endpoint](#create-transaction-endpoint).
+A TransactionInput represents an input consumed within a transaction. Generally returned and used with [Transaction Endpoint](#transaction-endpoint) and [Create Transaction Endpoint](#create-transaction-endpoint).
 
-Attribute         | Type      | Description
----------         | ----      | -----------
+Attribute | Type    | Description
+--------- | ----    | -----------
 `address` | string  | Is a string representing the address of a wallet.
 `value`   | integer | The value being spent in this transaction.
 
 
-## AddressTo
+## TransactionOutput
 
-A AddressTo represents an output created by a transaction. Generally returned and used with [Transaction Endpoint](#transaction-endpoint) and [Create Transaction Endpoint](#create-transaction-endpoint).
+A TransactionOutput represents an output created by a transaction. Generally returned and used with [Transaction Endpoint](#transaction-endpoint) and [Create Transaction Endpoint](#create-transaction-endpoint).
 
-Attribute         | Type      | Description
----------         | ----      | -----------
+Attribute | Type    | Description
+--------- | ----    | -----------
 `address` | string  | Is a string representing the address of a wallet.
 `value`   | integer | The value received in this transaction, in satoshis.
 
@@ -31,8 +31,8 @@ Attribute         | Type      | Description
 
 A TransactionsReference object represents summarized data about a transaction. Generally returned and used with the [Wallet Endpoint](#wallet-endpoint).
 
-Attribute         | Type      | Description
----------         | ----      | -----------
+Attribute       | Type    | Description
+---------       | ----    | -----------
 `transactionId` | string  | Is a string representing the hex-encoded transaction hash.
 `confirmations` | integer | Number of subsequent blocks, including the block the transaction is in. Unconfirmed transactions have 0 confirmations.
 `value`         | integer | The value transferred by this transaction in satoshis.

@@ -74,8 +74,8 @@ Parameter   | Description
 
 This response represents a public address on a blockchain, and contains information about the state of balances and transactions related to this address.
 
-Attribute                 | Type       | Description
----------                 | ----       | -----------
+Attribute               | Type     | Description
+---------               | ----     | -----------
 `address`               | string   | Is a string representing the address of a wallet.
 `balance`               | integer  | Total balance of satoshis, including confirmed and unconfirmed transactions, for this address.
 `confirmedBalance`      | integer  | Balance of confirmed satoshis on this address, but only for transactions that have been included into a block.
@@ -114,8 +114,8 @@ No information is required with this POST request.
 
 This response represents an associated collection of public and private keys alongside their respective public address.
 
-Attribute      | Type     | Description
----------      | ----     | -----------
+Attribute    | Type   | Description
+---------    | ----   | -----------
 `address`    | string | Is a string representing the address of a wallet.
 `privateKey` | string | Is a secret number that allows bitcoins to be spent, so be careful when handling it!
 
