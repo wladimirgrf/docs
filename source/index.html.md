@@ -1,5 +1,5 @@
 ---
-title: Bitchain
+title: BitChain
 
 language_tabs: 
   - shell: cURL
