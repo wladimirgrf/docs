@@ -1,6 +1,6 @@
 # Wallet API
 
-Bitchain's Wallet API allows you to look up information about public addresses on the blockchain, generate key pairs with corresponding addresses. If you're new to blockchains, you can think of public addresses as similar to bank account numbers in a traditional ledger. The biggest differences:
+BitChain's Wallet API allows you to look up information about public addresses on the blockchain, generate key pairs with corresponding addresses. If you're new to blockchains, you can think of public addresses as similar to bank account numbers in a traditional ledger. The biggest differences:
 
 - Anyone can generate a public address themselves (through [ECDSA](https://en.wikipedia.org/wiki/EllipticCurveDigitalSignatureAlgorithm). in Bitcoin). No single authority is needed to generate new addresses.
 

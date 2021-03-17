@@ -76,8 +76,11 @@ html, body {
   .logo {
     display: block;
     max-width: 100%;
-    color: $logo-color;
     margin: $logo-margin;
+  }
+
+  .logo h1 {
+    color: $logo-color;
   }
 
   &>.search {

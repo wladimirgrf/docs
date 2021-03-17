@@ -2,7 +2,7 @@
 
 Transactions are grouped into blocks and about every 10 minutes, a new block of transactions is sent out, becoming part of the transaction log (Blockchain), which indicates the transaction has been made (more-or-less) official. Once a transaction has been successfully mined in the blockchain, you can say that you transferred a certain amount of BTC to another address.
 
-Bitchain's Transaction API allows you to look up information about unconfirmed transactions, query transactions based on their id (hash), create and propagate your own transactions. 
+BitChain's Transaction API allows you to look up information about unconfirmed transactions, query transactions based on their id (hash), create and propagate your own transactions. 
 
 ## Transaction Endpoint
 
@@ -116,7 +116,7 @@ Attribute                 | Type      | Description
 curl -d '{"privateKey": "cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K","addressTo": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd","value": 1000}' "https://testnet.bitchain.network/transactions/create"
 ```
 
-Using Bitchain's API, you can push transactions to blockchain. 
+Using BitChain's API, you can push transactions to blockchain. 
 
 <aside class="success">
 We never take possession of your private keys.

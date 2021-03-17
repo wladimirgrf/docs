@@ -13,7 +13,7 @@ includes:
   - objects
 
 toc_footers:
-  - <a target='_blank' href='https://github.com/wladimirgrf/bitchain-network'>BitChain's Network on Github</a>
+  - <a target='_blank' href='https://github.com/bitchain/network'>BitChain's Network on Github</a>
 
 search: true
 

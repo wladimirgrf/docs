@@ -63,7 +63,10 @@ under the License.
       </span>
     </a>
     <div class="toc-wrapper">
-      <h1 class="logo">Bitchain</h1>
+      <div class="logo">
+        <h1><%= current_page.data.title %></h1>
+      </div>
+
       <% if language_tabs.any? %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
