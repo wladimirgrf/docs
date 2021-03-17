@@ -31,10 +31,6 @@ Slate supports running Docs in three different ways:
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## 📝 License
-
-Bitchain Network is released under the MIT License. Please refer to the [LICENSE](LICENSE) file that accompanies this project for more information including complete terms and conditions.
-
 ## 💜 Special Thanks
 
 <a href="https://github.com/slatedocs/slate">
@@ -44,3 +40,7 @@ Bitchain Network is released under the MIT License. Please refer to the [LICENSE
 <a href="https://github.com/dracula/slate">
   <img src="https://draculatheme.com/static/icons/pack-1/045-dracula.svg" alt="Slate: Dracula Theme" height="90">
 </a>
+
+## 📝 License
+
+Bitchain Network is released under the MIT License. Please refer to the [LICENSE](LICENSE) file that accompanies this project for more information including complete terms and conditions.
