@@ -19,8 +19,7 @@
 
 ## ▶️ Getting started
 
-To get started with BitChain Docs, please check out the [Getting Started](https://github.com/slatedocs/slate/wiki#getting-started)
-section in Slate [wiki](https://github.com/slatedocs/slate/wiki).
+To get started with BitChain Docs, please check out the Slate [wiki](https://github.com/slatedocs/slate/wiki#getting-started).
 
 Slate supports running Docs in three different ways:
 * [Natively](https://github.com/slatedocs/slate/wiki/Using-Slate-Natively)
