@@ -11,11 +11,11 @@
 
 <p align="center"><img src=".github/assets/screenshot.png" width=700 alt="Screenshot"></p>
 
-<p align="center">
+<h6 align="center">
     <em>The documentation above was created with <a href="https://github.com/slatedocs/slate">Slate</a>. 
       Check it out at <a href="https://docs.bitchain.network">docs.bitchain.network</a>.
     </em>
-</p>
+</h6>
 
 ## ▶️ Getting started
 
