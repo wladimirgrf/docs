@@ -6,10 +6,6 @@ BitChain's Transaction API allows you to look up information about unconfirmed t
 
 ## Transaction Endpoint
 
-```shell
-curl "https://testnet.bitchain.network/transactions/d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53"
-```
-
 The Transaction Endpoint returns detailed information about a given transaction based on its public id (hash).
 
 ### HTTP Request
@@ -18,6 +14,24 @@ The Transaction Endpoint returns detailed information about a given transaction 
   <i>GET</i>
   <span>https://testnet.bitchain.network/transactions/:id</span>
 </div>
+
+
+```shell
+curl "https://testnet.bitchain.network/transactions/d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53"
+```
+
+```javascript
+const axios = require('axios');
+
+const api = axios.create({
+  baseURL: "https://testnet.bitchain.network",
+});
+
+api.get('/transactions/d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53').then(function (response) {
+  console.log(response.data);
+});
+```
+
 
 ### URL Parameters
 
@@ -74,10 +88,6 @@ Attribute          | Type      | Description
 
 ## Transaction Fee Endpoint
 
-```shell
-curl -d '{"addressFrom": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd","addressTo": "mjDaJzEDCjiS86jJWmpn38nGe2A9N7EStd","value": 10000}' "https://testnet.bitchain.network/transactions/fee"
-```
-
 The Transaction Fee Endpoint returns the estimated mining fee amount (in satoshis) for a transaction, based on the addresses and value involved.
 
 ### HTTP Request
@@ -86,6 +96,28 @@ The Transaction Fee Endpoint returns the estimated mining fee amount (in satoshi
   <i>POST</i>
   <span>https://testnet.bitchain.network/transactions/fee</span>
 </div>
+
+
+```shell
+curl -X POST -H "Content-Type: application/json" -d '{"addressFrom": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd","addressTo": "mjDaJzEDCjiS86jJWmpn38nGe2A9N7EStd","value": 10000}' "https://testnet.bitchain.network/transactions/fee"
+```
+
+```javascript
+const axios = require('axios');
+
+const api = axios.create({
+  baseURL: "https://testnet.bitchain.network",
+});
+
+api.post('/transactions/fee', {
+  addressFrom: "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
+  addressTo: "mjDaJzEDCjiS86jJWmpn38nGe2A9N7EStd",
+  value: 10000
+}).then(function (response) {
+  console.log(response.data);
+});
+```
+
 
 ### Body
 
@@ -97,7 +129,7 @@ Attribute     | Type    | Description
 
 ```json
 {
-  "transactionEstimatedFee": 15200
+  "transactionEstimatedFee": 31300
 }
 ```
 
@@ -112,10 +144,6 @@ Attribute                 | Type      | Description
 
 ## Create Transaction Endpoint
 
-```shell
-curl -d '{"privateKey": "cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K","addressTo": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd","value": 1000}' "https://testnet.bitchain.network/transactions/create"
-```
-
 Using BitChain's API, you can push transactions to blockchain. 
 
 <aside class="success">
@@ -128,6 +156,28 @@ We never take possession of your private keys.
   <i>POST</i>
   <span>https://testnet.bitchain.network/transactions/create</span>
 </div>
+
+
+```shell
+curl -X POST -H "Content-Type: application/json" -d '{"privateKey": "cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K","addressTo": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd","value": 1000}' "https://testnet.bitchain.network/transactions/create"
+```
+
+```javascript
+const axios = require('axios');
+
+const api = axios.create({
+  baseURL: "https://testnet.bitchain.network",
+});
+
+api.post('/transactions/create', {
+  privateKey: "cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K",
+  addressTo: "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
+  value: 1000
+}).then(function (response) {
+  console.log(response.data);
+});
+```
+
 
 ### Body
 

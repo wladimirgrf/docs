@@ -8,10 +8,6 @@ BitChain's Wallet API allows you to look up information about public addresses o
 
 ## Wallet Endpoint
 
-```shell
-curl "https://testnet.bitchain.network/wallets/tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800"
-```
-
 The default Wallet Endpoint strikes a balance between speed of response and data on Addresses. It returns more information about an address' transactions than the Address Balance Endpoint but doesn't return full transaction information.
 
 ### HTTP Request
@@ -20,6 +16,24 @@ The default Wallet Endpoint strikes a balance between speed of response and data
   <i>GET</i>
   <span>https://testnet.bitchain.network/wallets/:address</span>
 </div>
+
+
+```shell
+curl "https://testnet.bitchain.network/wallets/tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800"
+```
+
+```javascript
+const axios = require('axios');
+
+const api = axios.create({
+  baseURL: "https://testnet.bitchain.network",
+});
+
+api.get('/wallets/tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800').then(function (response) {
+  console.log(response.data);
+});
+```
+
 
 ### URL Parameters
 
@@ -87,10 +101,6 @@ Attribute               | Type     | Description
 
 ## Create Wallet Endpoint
 
-```shell
-curl -X POST "https://testnet.bitchain.network/wallets/create"
-```
-
 The Create Wallet endpoint allows you to generate private-public key-pairs along with an associated public address. 
 No information is required with this POST request.
 
@@ -103,12 +113,31 @@ No information is required with this POST request.
   <span>https://testnet.bitchain.network/wallets/create</span>
 </div>
 
+
+```shell
+curl -X POST "https://testnet.bitchain.network/wallets/create"
+```
+
+```javascript
+const axios = require('axios');
+
+const api = axios.create({
+  baseURL: "https://testnet.bitchain.network",
+});
+
+api.post('/wallets/create').then(function (response) {
+  console.log(response.data);
+});
+```
+
+
 ```json
 {
   "address": "mffzq5WLcJVsokpSjVgPmjPmUCK5K2UoZN",
   "privateKey": "cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K"
 }
 ```
+
 
 ### HTTP Response
 
