@@ -3,8 +3,10 @@
 </h1>
 
 <p align="center">
-  <a href="https://github.com/slatedocs/slate/actions?query=workflow%3ABuild+branch%3Amain"><img src="https://github.com/slatedocs/slate/workflows/Build/badge.svg?branch=main" alt="Build Status"></a>
-  <a href="https://github.com/slatedocs/slate"><img src="https://img.shields.io/docker/v/slatedocs/slate?sort=semver" alt="Docker Version" /></a>
+  <img src="https://api.netlify.com/api/v1/badges/bae9e243-2e30-476e-92f6-c7dfcfe6a705/deploy-status" alt="Netlify Status">
+  <a href="https://github.com/bitchain/docs/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/bitchain/docs?color=%230E1E25">
+  </a>
 </p>
 
 <p align="center">This repository contains all of BitChain's Network documentation</p>
