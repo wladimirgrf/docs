@@ -9,7 +9,7 @@
   </a>
 </p>
 
-<p align="center">This repository contains all of BitChain's Network documentation</p>
+<p align="center">This repository contains all of BitChain's Network documentation.</p>
 
 <p align="center"><img src=".github/assets/screenshot.png" width=700 alt="Screenshot"></p>
 
