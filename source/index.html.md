@@ -1,5 +1,8 @@
 ---
-title: BitChain
+organization: BitChain
+
+title: BitChain Docs
+meta_description: Build bitcoin applications easily with our web API. High throughputs, low-latency.
 
 language_tabs: 
   - shell: cURL
