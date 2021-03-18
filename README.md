@@ -40,9 +40,9 @@ Bitchain Network is released under the MIT License. Please refer to the [LICENSE
 ## 💜 Special Thanks
 
 <a href="https://github.com/slatedocs/slate">
-  <img src="https://raw.githubusercontent.com/slatedocs/img/main/logo-slate.png" alt="Slate: API Documentation Generator" height="100">
+  <img src="https://raw.githubusercontent.com/slatedocs/img/main/logo-slate.png" alt="Slate: API Documentation Generator" height="95">
 </a>
 
 <a href="https://github.com/dracula/slate">
-  <img src="https://draculatheme.com/static/icons/pack-1/045-dracula.svg" alt="Slate: Dracula Theme" height="90">
+  <img src="https://draculatheme.com/static/icons/pack-1/045-dracula.svg" alt="Slate: Dracula Theme" height="80">
 </a>
