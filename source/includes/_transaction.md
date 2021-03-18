@@ -32,6 +32,30 @@ api.get('/transactions/d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0
 });
 ```
 
+```java
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.URI;
+
+...
+
+var baseURL = "https://testnet.bitchain.network";
+
+var uri = String.format("%s/transactions/d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53",baseURL);
+
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request=HttpRequest.newBuilder()
+  .header("content-type","application/json")
+  .uri(URI.create(uri))
+  .GET()
+  .build();
+
+HttpResponse<String> response = client.send(request,HttpResponse.BodyHandlers.ofString());
+
+System.out.println(response.body());
+```
+
 
 ### URL Parameters
 
@@ -118,6 +142,35 @@ api.post('/transactions/fee', {
 });
 ```
 
+```java
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.URI;
+
+...
+
+var baseURL = "https://testnet.bitchain.network";
+
+var uri = String.format("%s/transactions/fee",baseURL);
+var json = "{"
+  +"\"addressFrom\": \"muwAf337HUDpuajeA2yERod4bPZyWpcqbd\","
+  +"\"addressTo\": \"mjDaJzEDCjiS86jJWmpn38nGe2A9N7EStd\","
+  +"\"value\": 10000"
++"}";
+
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request=HttpRequest.newBuilder()
+  .header("content-type","application/json")
+  .uri(URI.create(uri))
+  .POST(HttpRequest.BodyPublishers.ofString(json))
+  .build();
+
+HttpResponse<String> response = client.send(request,HttpResponse.BodyHandlers.ofString());
+
+System.out.println(response.body());
+```
+
 
 ### Body
 
@@ -178,6 +231,35 @@ api.post('/transactions/create', {
 });
 ```
 
+```java
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.URI;
+
+...
+
+var baseURL = "https://testnet.bitchain.network";
+
+var uri = String.format("%s/transactions/create",baseURL);
+var json = "{"
+  +"\"privateKey\": \"cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K\","
+  +"\"addressTo\": \"muwAf337HUDpuajeA2yERod4bPZyWpcqbd\","
+  +"\"value\": 1000"
++"}";
+
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request=HttpRequest.newBuilder()
+  .header("content-type","application/json")
+  .uri(URI.create(uri))
+  .POST(HttpRequest.BodyPublishers.ofString(json))
+  .build();
+
+HttpResponse<String> response = client.send(request,HttpResponse.BodyHandlers.ofString());
+
+System.out.println(response.body());
+```
+
 
 ### Body
 
@@ -190,12 +272,12 @@ Attribute    | Type    | Description
 
 ```json
 {
-  "id": "ab0eee27325d5fad40431f52294edf2c09258ce85fd40a8283d6a64c6d6ddbde",
-  "fee": 15200,
+  "id": "9b04e5034e547e0e47291488a2986e5120b0dd38e01541f7ee71136d2a676877",
+  "fee": 13700,
   "transactionInput": [
     {
-      "address": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
-      "value": 2750343
+      "address": "mjDaJzEDCjiS86jJWmpn38nGe2A9N7EStd",
+      "value": 41700
     }
   ],
   "transactionOutput": [
@@ -204,8 +286,8 @@ Attribute    | Type    | Description
       "value": 1000
     },
     {
-      "address": "muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
-      "value": 2734143
+      "address": "mjDaJzEDCjiS86jJWmpn38nGe2A9N7EStd",
+      "value": 27000
     }
   ]
 }

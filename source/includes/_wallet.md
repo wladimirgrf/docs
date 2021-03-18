@@ -34,6 +34,30 @@ api.get('/wallets/tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800').then(function (re
 });
 ```
 
+```java
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.URI;
+
+...
+
+var baseURL = "https://testnet.bitchain.network";
+
+var uri = String.format("%s/wallets/tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800",baseURL);
+
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request=HttpRequest.newBuilder()
+  .header("content-type","application/json")
+  .uri(URI.create(uri))
+  .GET()
+  .build();
+
+HttpResponse<String> response = client.send(request,HttpResponse.BodyHandlers.ofString());
+
+System.out.println(response.body());
+```
+
 
 ### URL Parameters
 
@@ -128,6 +152,30 @@ const api = axios.create({
 api.post('/wallets/create').then(function (response) {
   console.log(response.data);
 });
+```
+
+```java
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.URI;
+
+...
+
+var baseURL = "https://testnet.bitchain.network";
+
+var uri = String.format("%s/wallets/create",baseURL);
+
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request=HttpRequest.newBuilder()
+  .header("content-type","application/json")
+  .uri(URI.create(uri))
+  .POST(HttpRequest.BodyPublishers.ofString(""))
+  .build();
+
+HttpResponse<String> response = client.send(request,HttpResponse.BodyHandlers.ofString());
+
+System.out.println(response.body());
 ```
 
 
