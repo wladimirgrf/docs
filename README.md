@@ -1,6 +1,10 @@
 <h1 align="center">
-  BitChain Docs
+  <img alt="Logo" src=".github/assets/bitchain_logo.png" width="300px">
 </h1>
+
+<h3 align="center">
+  docs
+</h3>
 
 <p align="center">
   <img src="https://api.netlify.com/api/v1/badges/bae9e243-2e30-476e-92f6-c7dfcfe6a705/deploy-status" alt="Netlify Status">
