@@ -75,12 +75,8 @@ html, body {
   // This is the logo at the top of the ToC
   .logo {
     display: block;
-    max-width: 100%;
+    max-width: 80%;
     margin: $logo-margin;
-  }
-
-  .logo h1 {
-    color: $logo-color;
   }
 
   &>.search {
@@ -88,7 +84,7 @@ html, body {
     margin: 10px 0 20px;
 
     input {
-      background: #fff;
+      background: $search-bg;
       border: 0;
       padding: 10px 0 10px 46px;
       box-sizing: border-box;
