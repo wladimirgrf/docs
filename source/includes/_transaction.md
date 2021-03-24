@@ -56,6 +56,22 @@ HttpResponse<String> response = client.send(request,HttpResponse.BodyHandlers.of
 System.out.println(response.body());
 ```
 
+```php
+<?php
+
+$url = "https://testnet.bitchain.network/transactions/d3571c42e5379ea70bce0c2c3c571018a293c5598dad4b2e0c0b7b4f0e625c53";
+
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+$resp = curl_exec($curl);
+curl_close($curl);
+var_dump($resp);
+
+?>
+```
+
 
 ### URL Parameters
 
@@ -171,6 +187,38 @@ HttpResponse<String> response = client.send(request,HttpResponse.BodyHandlers.of
 System.out.println(response.body());
 ```
 
+```php
+<?php
+
+$url = "https://testnet.bitchain.network/transactions/fee";
+
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+$headers = array(
+   "Content-Type: application/json",
+);
+curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+
+$data = <<<DATA
+{
+  "addressFrom":"muwAf337HUDpuajeA2yERod4bPZyWpcqbd",
+  "addressTo": "mjDaJzEDCjiS86jJWmpn38nGe2A9N7EStd",
+  "value": 10000
+}
+DATA;
+
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+
+$resp = curl_exec($curl);
+curl_close($curl);
+var_dump($resp);
+
+?>
+```
+
 
 ### Body
 
@@ -258,6 +306,38 @@ HttpRequest request=HttpRequest.newBuilder()
 HttpResponse<String> response = client.send(request,HttpResponse.BodyHandlers.ofString());
 
 System.out.println(response.body());
+```
+
+```php
+<?php
+
+$url = "https://testnet.bitchain.network/transactions/create";
+
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+$headers = array(
+   "Content-Type: application/json",
+);
+curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+
+$data = <<<DATA
+{
+  "privateKey":"cW33mrcvCY2YzoFegug4xfQ8U4yNEAeLRUs2z78ZwCwb4w1Fn35K",
+  "addressTo": "mjDaJzEDCjiS86jJWmpn38nGe2A9N7EStd",
+  "value": 1000
+}
+DATA;
+
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+
+$resp = curl_exec($curl);
+curl_close($curl);
+var_dump($resp);
+
+?>
 ```
 
 

@@ -58,6 +58,22 @@ HttpResponse<String> response = client.send(request,HttpResponse.BodyHandlers.of
 System.out.println(response.body());
 ```
 
+```php
+<?php
+
+$url = "https://testnet.bitchain.network/wallets/tb1qe8ayn3j3adu72496v48v5cvj40gqpjz09uh800";
+
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+$resp = curl_exec($curl);
+curl_close($curl);
+var_dump($resp);
+
+?>
+```
+
 
 ### URL Parameters
 
@@ -176,6 +192,29 @@ HttpRequest request=HttpRequest.newBuilder()
 HttpResponse<String> response = client.send(request,HttpResponse.BodyHandlers.ofString());
 
 System.out.println(response.body());
+```
+
+```php
+<?php
+
+$url = "https://testnet.bitchain.network/wallets/create";
+
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+$headers = array(
+   "Content-Type: application/json",
+   "Content-Length: 0",
+);
+curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+
+$resp = curl_exec($curl);
+curl_close($curl);
+var_dump($resp);
+
+?>
 ```
 
 
