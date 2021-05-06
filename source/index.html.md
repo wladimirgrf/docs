@@ -25,7 +25,7 @@ code_clipboard: true
 
 # Introduction
 
-Welcome to BitChain's API documentation! BitChain Network is a simple, mostly RESTful JSON API for interacting with Bitcoin blockchain, accessed over HTTP or HTTPS from the bitchain.network domain. Currently, BitChain supports Bitcoin and Bitcoin Testnet Chain.
+Welcome to BitChain's API documentation! BitChain Network is a simple, mostly RESTful JSON API for interacting with Bitcoin, accessed over HTTP or HTTPS from the bitchain.network domain. Currently, BitChain supports Main and Test Bitcoin blockchains.
 
 <aside class="warning">
 All currency amounts are in units of satoshis (1/100,000,000 of a bitcoin).
